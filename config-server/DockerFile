@@ -1,0 +1,11 @@
+#start with a base image containing java runtime
+FROM openjdk-17-jdk-slim
+
+#Information about who maintains the image
+MAINTAINER practice
+
+#Add the application's jar to the image
+COPY target/config-server-0.0.1-SNAPSHOT.jar config-server-0.0.1-SNAPSHOT.jar
+
+# Executes the config
+ENTRYPOINT["java","-jar","config-server-0.0.1-SNAPSHOT.jar"]
